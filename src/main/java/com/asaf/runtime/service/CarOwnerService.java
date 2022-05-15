@@ -44,6 +44,10 @@ public class CarOwnerService {
     carOwner.setId(UUID.randomUUID().toString());
     updateCarOwnerNoMerge(carOwner, carOwnerCreate);
 
+    if (securityContext != null) {
+      carOwner.setCreator(securityContext.getUser());
+    }
+
     return carOwner;
   }
 

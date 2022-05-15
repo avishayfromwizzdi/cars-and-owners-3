@@ -44,6 +44,10 @@ public class MotorcycleService {
     motorcycle.setId(UUID.randomUUID().toString());
     updateMotorcycleNoMerge(motorcycle, motorcycleCreate);
 
+    if (securityContext != null) {
+      motorcycle.setCreator(securityContext.getUser());
+    }
+
     return motorcycle;
   }
 
